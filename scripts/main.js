@@ -5,7 +5,7 @@ const bricksContainer = document.getElementById('bricks');
 const scoreDisplay = document.getElementById('score');
 
 // paddle's initial position
-let paddlePosition = (gameContainer.offsetWidth - paddle.offsetWidth) / 2; // i dont know why its not working as expected but i'll fix it
+let paddlePosition;
 let paddleSpeed = 10
 
 
@@ -32,10 +32,10 @@ document.addEventListener('keydown', (event) => {
 
 function moveBall() {
     // Define the ball's initial position and speed
-    let ballX = gameContainer.offsetWidth / 2;
-    let ballY = gameContainer.offsetHeight - 100;
-    let ballSpeedX = 1
-    let ballSpeedY = 1
+    let ballX = gameContainer.offsetWidth / 4;
+    let ballY = gameContainer.offsetHeight - 300;
+    let ballSpeedX = 2
+    let ballSpeedY = 2
     
     function updateBallPosition() {
         ballX += ballSpeedX;
@@ -84,6 +84,8 @@ function createBricks() {
 }
 
 function startGame() {
+    paddlePosition = (gameContainer.offsetWidth - paddle.offsetWidth) / 2; // i dont know why its not working as expected but i'll fix it
+
     createBricks();
     moveBall();
 }
