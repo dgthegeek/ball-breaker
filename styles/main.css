@@ -4,6 +4,8 @@
     height: 600px;
     background-color: #f0f0f0;
     margin: 0 auto;
+    
+
 }
 
 .paddle {
@@ -11,6 +13,14 @@
     width: 100px;
     height: 10px;
     background-color: blue;
+    bottom: 10px;
+}
+
+.br {
+    position: absolute;
+    width: 90px;
+    height: 10px;
+    background-color: rgb(235, 22, 181);
     bottom: 10px;
 }
 
@@ -24,6 +34,10 @@
 
 .bricks {
     position: absolute;
+    width: 800px;
+    height: 300px;
+    background-color: #050404;
+
 }
 
 .score {
