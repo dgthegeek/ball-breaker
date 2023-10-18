@@ -42,13 +42,12 @@ export function moveBall() {
     }
 }
 
-
 export function togglePause() {
     if (isPaused) {
         // Resume the game
         isPaused = false;
         pauseButton.textContent = 'Pause';
-        moveBall();
+        requestAnimationFrame(moveBall()) ;
     } else {
         // Pause the game
         isPaused = true;
