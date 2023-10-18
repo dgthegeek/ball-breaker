@@ -1,0 +1,3 @@
+export function checkCollision() {
+    // Implement collision detection logic...
+}

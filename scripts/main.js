@@ -1,13 +1,17 @@
+import { initializeGame } from './initialize.js';
+
 const gameContainer = document.querySelector('.game-container');
 const paddle = document.getElementById('paddle');
 const ball = document.getElementById('ball');
 const bricksContainer = document.getElementById('bricks');
 const scoreDisplay = document.getElementById('score');
 
-// paddle's initial position
-let paddlePosition;
-let paddleSpeed = 10
+// paddle's initial position and speed
+let paddlePosition = (gameContainer.offsetWidth - paddle.offsetWidth) / 2; // i dont know why its not working as expected but i'll fix it
+paddlePosition -= 0;
 
+
+let paddleSpeed = 10
 
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft') {
@@ -30,81 +34,5 @@ document.addEventListener('keydown', (event) => {
     
 });
 
-function moveBall() {
-    // Define the ball's initial position and speed
-    let ballX = gameContainer.offsetWidth / 4;
-    let ballY = gameContainer.offsetHeight - 300;
-    let ballSpeedX = 2
-    let ballSpeedY = 2
-    
-    function updateBallPosition() {
-        ballX += ballSpeedX;
-        ballY += ballSpeedY;
-        
-        // mke sure the djinax is inside the box
-        if (ballX < 0 || ballX + ball.offsetWidth > gameContainer.offsetWidth) {
-            ballSpeedX = -ballSpeedX;
-        }
-        if (ballY < 0) {
-            ballSpeedY = -ballSpeedY;
-        }
-        
-        // Check for collisions with the paddle 
-        if (ballY + ball.offsetHeight > paddle.offsetTop && ballX + ball.offsetWidth > paddle.offsetLeft && ballX < paddle.offsetLeft + paddle.offsetWidth) {
-            ballSpeedY = -ballSpeedY;
-        }
-        
-        
-        
-        // Update the ball's position
-        ball.style.left = ballX + 'px';
-        ball.style.top = ballY + 'px';
-        
-        // Continue moving the ball
-        requestAnimationFrame(updateBallPosition);
-    }
-    
-    updateBallPosition();
-}
 
-function checkCollision() {
-    // i will Implement here collision detection logic with the paddle and bricks
-}
-
-function gameOver() {
-    gameContainer.innerHTML = '<div class="game-over">Game Over</div>';
-}
-
-function updateScore(score) {
-    scoreDisplay.textContent = `Score: ${score}`;
-}
-
-function createBricks() {
-    
-}
-
-function startGame() {
-    paddlePosition = (gameContainer.offsetWidth - paddle.offsetWidth) / 2; // i dont know why its not working as expected but i'll fix it
-
-    createBricks();
-    moveBall();
-}
-
-function updateGame() {
-    // i will Implement the game update here (e.g., checking for game over, scoring)
-}
-
-function gameLoop() {
-    updateGame();
-    
-    if (ball.offsetTop + ball.offsetHeight > gameContainer.offsetHeight) {
-        gameOver();
-        return;
-    }
-    
-    requestAnimationFrame(gameLoop);
-}
-
-startGame();
-
-gameLoop();
+initializeGame();
