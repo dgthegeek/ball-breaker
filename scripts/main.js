@@ -1,4 +1,5 @@
 import { initializeGame } from './initialize.js';
+import { togglePause } from './gameplay.mjs';
 
 const gameContainer = document.querySelector('.game-container');
 const paddle = document.getElementById('paddle');
@@ -33,6 +34,8 @@ document.addEventListener('keydown', (event) => {
     }
     
 });
+
+const TogglePause = ()=>togglePause
 
 
 initializeGame();

@@ -1,12 +1,14 @@
 const gameContainer = document.querySelector('.game-container');
 const paddle = document.getElementById('paddle');
 const ball = document.getElementById('ball');
+const pauseButton = document.getElementById('pauseButton')
 
 //Keep track of the ball position to handle pause event
 let ballYpause
 let ballXpause
 
-
+// handle the pause event
+pauseButton.addEventListener('click', () => togglePause())
 
 export function moveBall(x, y) {
     // Define the ball's initial position and speed
