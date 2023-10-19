@@ -1,3 +1,5 @@
+import { checkCollision } from "./collision.mjs";
+
 const gameContainer = document.querySelector('.game-container');
 const paddle = document.getElementById('paddle');
 const ball = document.getElementById('ball');
@@ -34,10 +36,11 @@ export function moveBall() {
             ballSpeedY = -ballSpeedY;
         }
 
+        
         // Update the ball's position
         ball.style.left = ballX + 'px';
         ball.style.top = ballY + 'px';
-
+        checkCollision(ballX, ballY, ball, ballSpeedY, ballSpeedX)
         animationFrameId = requestAnimationFrame(moveBall);
     }
 }
@@ -47,7 +50,7 @@ export function togglePause() {
         // Resume the game
         isPaused = false;
         pauseButton.textContent = 'Pause';
-        requestAnimationFrame(moveBall()) ;
+        requestAnimationFrame(moveBall) ;
     } else {
         // Pause the game
         isPaused = true;

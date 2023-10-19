@@ -43,4 +43,11 @@
 .score {
     text-align: center;
     font-size: 24px;
+} 
+
+.br {
+    position: absolute;
+    background-color: aqua;
+    height: 20px;
+    width: 40px;
 }
