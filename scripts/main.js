@@ -1,4 +1,4 @@
-import { initializeGame } from './initialize.js';
+import { initializeGame } from './initialize.mjs';
 
 
 initializeGame();
