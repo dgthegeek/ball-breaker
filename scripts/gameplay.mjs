@@ -21,6 +21,11 @@ export function moveBall() {
         ballX += ballSpeedX;
         ballY += ballSpeedY;
 
+        const brickCollision = checkCollision(ballX, ballY, ball);
+        if (brickCollision) {
+            ballSpeedY = -ballSpeedY; 
+        }
+
         // Make sure the ball stays within the container
         if (ballX < 0 || ballX + ball.offsetWidth > gameContainer.offsetWidth) {
             ballSpeedX = -ballSpeedX;

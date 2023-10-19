@@ -1,6 +1,6 @@
-export function checkCollision(ballX, ballY, ball, ballSpeedY, ballSpeedX) {
+export function checkCollision(ballX, ballY, ball) {
     const brickList = Array.from(document.getElementsByClassName('br'));
-    
+
     for (let i = 0; i < brickList.length; i++) {
         const brick = brickList[i];
         if (
@@ -9,10 +9,9 @@ export function checkCollision(ballX, ballY, ball, ballSpeedY, ballSpeedX) {
             ballY + ball.offsetHeight > brick.offsetTop &&
             ballY < brick.offsetTop + brick.offsetHeight
         ) {
-            console.log('Collision');
-            ballSpeedY = -ballSpeedY
-    
             brick.remove();
+            return true; 
         }
     }
+    return false;
 }
