@@ -1,4 +1,5 @@
 import { checkCollision } from "./collision.mjs";
+import { updateScore }   from "./updateGame.mjs"
 
 const gameContainer = document.querySelector('.game-container');
 const paddle = document.getElementById('paddle');
@@ -24,7 +25,9 @@ export function moveBall() {
         const brickCollision = checkCollision(ballX, ballY, ball);
         if (brickCollision) {
             ballSpeedY = -ballSpeedY; 
+            updateScore()
         }
+        
 
         // Make sure the ball stays within the container
         if (ballX < 0 || ballX + ball.offsetWidth > gameContainer.offsetWidth) {

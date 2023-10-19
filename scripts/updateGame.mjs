@@ -1,3 +1,6 @@
-export function updateGame() {
-    // i will Implement the game update here (e.g., checking for game over, scoring)
+let score = 0
+const scoresheet = document.getElementById('score')
+export function updateScore() {
+    score += 10
+    scoresheet.textContent = `Score: ${score}`
 }
