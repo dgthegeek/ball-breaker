@@ -63,3 +63,7 @@ export function togglePause() {
         pauseButton.textContent = 'Resume';
     }
 }
+
+export function shouldListen(){
+    return isPaused? true: false 
+}
