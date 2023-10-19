@@ -36,8 +36,8 @@ export function Listner(params) {
         paddle.style.left = paddlePosition + 'px';
 
         
-        if (paddlePosition + paddle.offsetWidth > gameContainer.offsetWidth) {
-            paddlePosition = gameContainer.offsetWidth - paddle.offsetWidth;
+        if (paddlePosition > 670) {
+            paddlePosition = gameContainer.offsetWidth - paddle.offsetWidth - 10;
         }
     }
 });
